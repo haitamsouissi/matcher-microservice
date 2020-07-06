@@ -1,2 +1,0 @@
-# matcher-microservice
-Matcher Microservice
