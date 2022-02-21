@@ -1,9 +1,9 @@
 <?php
 
-use App\Topicality;
+use App\Property;
 use Illuminate\Database\Seeder;
 
-class TopicalityTableSeeder extends Seeder
+class PropertyTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +12,6 @@ class TopicalityTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Topicality::class, 30)->create();
+        factory(Property::class, 50)->create();
     }
 }

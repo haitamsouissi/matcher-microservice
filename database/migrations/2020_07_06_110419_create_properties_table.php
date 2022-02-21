@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTopicalitiesTable extends Migration
+class CreatePropertiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,14 @@ class CreateTopicalitiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('topicalities', function (Blueprint $table) {
+        Schema::create('properties', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 255);
-            $table->text('content');
+            $table->string('name');
+            $table->string('address');
+            $table->string('propertyType');
+            $table->json('fields');
             $table->timestamps();
+            #$table->foreign('propertyType')->references('propertyType')->on('searchprofile');
         });
     }
 
@@ -28,6 +31,6 @@ class CreateTopicalitiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('topicalities');
+        Schema::dropIfExists('properties');
     }
 }

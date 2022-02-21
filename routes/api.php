@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Resources\Property as PropertyResource;
+use App\Property;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,5 +21,16 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::middleware('auth:api')->group(function () {
-    Route::apiResource('topicality', 'TopicalityController');
+    
+    #Route::apiResource('property', 'PropertyController')->parameters([
+    #    'property' => 'match',
+    #]);
+    Route::get('match/{property}', function ($property) {
+        return new PropertyResource(Property::findOrFail($property));
+    });
+    #Route::apiResource('property', 'PropertyController');
+    #return redirect()->route('property')
+    
+
+
 });
