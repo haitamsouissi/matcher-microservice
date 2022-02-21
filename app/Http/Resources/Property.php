@@ -90,7 +90,7 @@ class Property extends JsonResource
                                 }
                             }
                             else{
-                                if($pf_val == $sf_val){
+                                if($pf_val == $sf_val or is_null($sf_val)){
                                     $score=$score+3;
                                     $strictMatchesCount=$strictMatchesCount+1;
                                 }
